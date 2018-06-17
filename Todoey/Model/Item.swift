@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class Item: NSObject {
+class Item: Codable {
    
     
     var titleOfItem = ""
