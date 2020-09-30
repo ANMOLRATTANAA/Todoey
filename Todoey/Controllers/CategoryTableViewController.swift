@@ -8,6 +8,12 @@
 
 import UIKit
 import RealmSwift
+struct Constants{
+    static let title = "Add Category Items"
+    static let placeholder = "Create Category"
+    static let addCategory = "Add Category"
+    
+}
 
 class CategoryTableViewController: UITableViewController {
     let realm = try! Realm()
@@ -20,15 +26,15 @@ class CategoryTableViewController: UITableViewController {
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         var textField = UITextField()
-        let controller = UIAlertController(title: "Add Category Items", message: "", preferredStyle: .alert)
-        let action =  UIAlertAction(title: "Add Category", style: .default) { (action) in
+        let controller = UIAlertController(title: Constants.title, message: "", preferredStyle: .alert)
+        let action =  UIAlertAction(title:Costants.addCategory , style: .default) { (action) in
             let newCategory = Category()
             newCategory.name = textField.text!
             self.save(category: newCategory)
             
         }
         controller.addTextField { (categoryTextField) in
-            categoryTextField.placeholder = "Create Category"
+            categoryTextField.placeholder = Constants.placeholder
             textField = categoryTextField
         }
         controller.addAction(action)
